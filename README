@@ -1,0 +1,25 @@
+This mini project was started because i wanted to find a
+way to host the messaging queue service via a web service.
+
+A few considerations was necessary to decide how we wanted to do this
+1. The messaging service was to support AQMP a.k.a Advanced Message Queuing Protocol
+2. It should be able to support the usual HTTP protocol
+3. Ideally, it should be RESTful (not implemented yet, soon)
+
+After discussing with my colleague, Liu Xiao Hui
+aka as Oreh Linden (ahh the good ol'days in Linden Lab) we
+decided that i should build one instead using CherryPy and
+Pika.
+
+What we have 
+-------------------
+1. Create named Queues
+2. Send messages to named or default queues
+3. Create exchanges
+4. Send messages to named or default exchanges
+
+Feedback
+-------------------
+If you like what we did, please send feedback to raymond.tay@hp.com
+I shall be glad to hear from you
+
