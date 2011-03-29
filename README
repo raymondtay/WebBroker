@@ -18,6 +18,17 @@ What we have
 3. Create exchanges
 4. Send messages to named or default exchanges
 
+Getting Started
+-------------------
+1. Download Celery 2.2.4
+2. Download CherryPy 3.2.0
+3. Download RabbitMQ 2.3.1
+4. Download Python 2.6+
+5. Download the codes to a dir named "WebBroker"
+6. CD to that dir and run "python ./main.py"
+7. Start the CeleryD process "celeryd --loglevel=debug"
+8. Start RabbitMQ in detached mode "sudo rabbitmq-server -detached"
+
 Feedback
 -------------------
 If you like what we did, please send feedback to raymond.tay@hp.com
