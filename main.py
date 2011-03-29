@@ -26,6 +26,8 @@ from celery.execute import send_task
 """
 class World(object):
 
+ def index(self):
+  return ""
 
  """
 
@@ -82,6 +84,7 @@ class World(object):
     return str(result.get())
 
  # Exposing the methods for invocations
+ index.exposed = True
  action.exposed = True
 
 #

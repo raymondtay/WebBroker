@@ -89,6 +89,29 @@ def listExchanges():
 	return io.getvalue()
 
 @task()
+def listQueues():
+	"""
+	Hooks up to RabbitMQ and returns the list of available
+	queues in JSON format
+
+	The caveat here is the same as that in 'listExchanges' where
+	the unix user needs to be in the sudoers list
+	"""
+	# List the exchanges on the localhost and parse the data
+	# and returning only names of exchanges
+	import subprocess, re
+	output = subprocess.Popen(["rabbitmqctl", "list_queues"], stdout=subprocess.PIPE).communicate()[0]
+	regex = re.compile("(?:\\n|\\t)([a-zA-Z.]+)")
+	qnames = [str(s) for s in re.findall(regex,output) if s not in ['...done.']]
+
+	# Return the data in JSON format
+	from StringIO import StringIO
+	io = StringIO()
+	json.dump({'queues': qnames},io, sort_keys=True)
+	return io.getvalue()
+
+
+@task()
 def createNameQ(name = ''):
 	"""
 	Creates a named queue for the default exchange
